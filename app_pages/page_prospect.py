@@ -90,11 +90,11 @@ def DrawInputsWidgets():
     percentageMin, percentageMax = 0.4, 2.0
 
 # we create input widgets only for 6 features
-    col1, col2, col3, col4 = st.beta_columns(4)
-    col5, col6, col7, col8 = st.beta_columns(4)
+    col1, col2, col3, col4 = st.columns(4)
+    col5, col6, col7, col8 = st.columns(4)
 
     # We are using these features to feed the ML pipeline - values copied from check_variables_for_UI() result
-
+    # {'OnlineBackup', 'PaymentMethod', 'Contract', 'MonthlyCharges', 'PhoneService', 'InternetService'}
     # create an empty DataFrame, which will be the live data
     X_live = pd.DataFrame([], index=[0])
 
@@ -150,6 +150,6 @@ def DrawInputsWidgets():
         )
     X_live[feature] = st_widget
 
-    # st.write(X_live)
+    st.write(X_live)
 
     return X_live
